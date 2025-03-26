@@ -1,14 +1,16 @@
 import svgToDataUri from "mini-svg-data-uri";
 import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+import daisyui from "daisyui"; // Import DaisyUI
 
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: "class",
 	theme: {
-		// rest of the code
+		extend: {},
 	},
 	plugins: [
+		daisyui, // Add DaisyUI plugin
 		addVariablesForColors,
 		function ({ matchUtilities, theme }) {
 			matchUtilities(
@@ -33,6 +35,9 @@ export default {
 			);
 		},
 	],
+	daisyui: {
+		themes: ["light", "dark", "cupcake"], // Add themes if needed
+	},
 };
 
 function addVariablesForColors({ addBase, theme }) {

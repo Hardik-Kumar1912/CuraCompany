@@ -6,29 +6,38 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import TestPage from "./pages/TestPage";
 import Header from "./components/ui/Header";
+import Navbar1 from "./components/Navbar1";
 
 import { useAuthContext } from "./context/AuthContext";
+import InitailPage from "./pages/InitailPage";
+import Footer from "./components/Footer";
+import DashBoard from "./pages/DashBoard";
+import Yet from "./pages/Yet";
 
 function App() {
   const { authUser } = useAuthContext();
 
   return (
     <>
-      {authUser && <Header />}
       <Routes>
         <Route
           path="/"
-          element={authUser ? <HomePage /> : <Navigate to={"/login"} />}
+          element={authUser ? <DashBoard/> : <div><Navbar1/><InitailPage/><Footer/></div>}
+        />
+        <Route
+          path="/home"
+          element={authUser ? <div><Header/><HomePage/></div> : <Navigate to={"/login"} />}
         />
         <Route
           path="/login"
-          element={authUser ? <Navigate to={"/"} /> : <LoginPage />}
+          element={authUser ? <DashBoard/> : <LoginPage />}
         />
         <Route
           path="/signup"
-          element={authUser ? <Navigate to={"/"} /> : <SignUpPage />}
+          element={authUser ? <DashBoard/> : <SignUpPage />}
         />
-        <Route path="/transaction/:id" element={<TestPage />} />
+        <Route path="/transaction/:id" element={<div><Header /><TestPage /></div>} />
+        <Route path="/yet" element={<Yet/>} />
       </Routes>
       <Toaster />
     </>

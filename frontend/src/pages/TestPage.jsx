@@ -67,7 +67,7 @@ const TestPage = () => {
 			toast.success("Test updated successfully");
 
 			setTimeout(() => {
-				navigate("/");
+				navigate("/home");
 			},1000);
 			
 		} catch (err) {

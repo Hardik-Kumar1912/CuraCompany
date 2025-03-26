@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import InputField from "../components/InputField";
 import useSignup from "../hooks/useSignup.js";
+import { MdArrowBack } from "react-icons/md";
 
 const SignUpPage = () => {
   const [signUpData, setSignUpData] = useState({
@@ -27,8 +28,16 @@ const SignUpPage = () => {
 		await signup(signUpData);
 	};
 
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen flex justify-center items-center">
+      <button
+              onClick={() => navigate("/")}
+              className="absolute top-6 left-6 flex items-center p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition"
+            >
+              <MdArrowBack className="w-6 h-6 text-white" />
+            </button>
       <div className="flex rounded-lg overflow-hidden z-50 bg-gray-300">
         <div className="w-full bg-gray-100 min-w-80 sm:min-w-96 flex items-center justify-center">
           <div className="max-w-md w-full p-6">
@@ -72,7 +81,7 @@ const SignUpPage = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black  focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full mt-4 bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black  focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Sign Up
                 </button>
