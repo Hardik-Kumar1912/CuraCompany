@@ -53,29 +53,41 @@ const TestPage = () => {
 		setLoading(true);
 		setError(null);
 		setSuccess(false);
-
+	  
 		try {
-			const response = await fetch(`/api/tests/test/${id}`, {
-				method: "PUT",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(formData),
-			});
-
-			if (!response.ok) throw new Error("Failed to update test");
-
-			setSuccess(true);
-			toast.success("Test updated successfully");
-
-			setTimeout(() => {
-				navigate("/home");
-			},1000);
-			
+		  // Create a payload with the correct keys for the backend
+		  const payload = {
+			name: formData.name,
+			tests: formData.tests,
+			category: formData.cardType, // Map cardType to category
+			price: formData.price,
+			// Assuming noOfTests is calculated from tests, adjust if necessary:
+			noOfTests: formData.noOfTests || formData.tests.split(',').length
+		  };
+	  
+		  const response = await fetch(`/api/tests/test/${id}`, {
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(payload),
+		  });
+	  
+		  if (!response.ok) throw new Error("Failed to update test");
+	  
+		  setSuccess(true);
+		  toast.success("Test updated successfully");
+	  
+		  setTimeout(() => {
+			navigate("/home");
+		  }, 1000);
+		  
 		} catch (err) {
-			setError(err.message);
+		  setError(err.message);
 		} finally {
-			setLoading(false);
+		  setLoading(false);
 		}
-	};
+	  };
+	  
+	
 
 	if (loading) return <p className="text-center text-xl">Loading...</p>;
 	if (error) return <p className="text-center text-xl text-red-500">{error}</p>;
