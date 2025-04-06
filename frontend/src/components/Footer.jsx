@@ -9,8 +9,16 @@ const Footer = () => {
 
       <div className="container mx-auto flex flex-col items-center text-center md:flex-row md:text-left justify-between px-6">
         {/* Left Section - Branding */}
+        
         <div className="mb-4 md:mb-0 w-full md:w-auto">
-          <h2 className="text-3xl font-bold text-white">Cura</h2>
+          <div className="flex">
+          <img
+          src="../../public/Logo.png" // <- Update this to your actual logo path
+          alt="Cura Logo"
+          className="h-12 w-12 object-contain"
+        />
+          <h2 className="text-3xl font-bold text-white mt-1">Cura</h2>
+          </div>
           <p className="text-sm text-blue-100 mt-1">
             Empowering sellers, one product at a time.
           </p>

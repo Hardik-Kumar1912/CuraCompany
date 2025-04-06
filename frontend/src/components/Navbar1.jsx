@@ -6,7 +6,12 @@ const Navbar1 = () => {
     <div className="w-full">
       <nav className="navbar bg-gradient-to-r from-blue-500 to-blue-700 border-b border-blue-800 shadow-md px-6 py-4 relative flex items-center text-white">
         {/* Logo Section (Left-Aligned, Slightly Shifted Right) */}
-        <div className="flex-1 ml-4">
+        <img
+          src="../../public/Logo.png" // <- Update this to your actual logo path
+          alt="Cura Logo"
+          className="h-12 w-12 object-contain"
+        />
+        <div className="flex-1 ml-1 mb-1">
           <Link
             to="/"
             className="text-4xl font-bold tracking-wide hover:text-white transition relative"
@@ -26,7 +31,10 @@ const Navbar1 = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal space-x-4">
             <li>
-              <Link to="/login" className="btn btn-outline border-white text-white hover:bg-white hover:text-blue-700 transition px-5">
+              <Link
+                to="/login"
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-blue-700 transition px-5"
+              >
                 Start Selling
               </Link>
             </li>

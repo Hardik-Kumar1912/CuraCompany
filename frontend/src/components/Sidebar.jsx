@@ -38,7 +38,7 @@ const Sidebar = ({ toggleSidebar }) => {
           <li key={index}>
             <Link
               to={item.path}
-              className="block py-3 px-4 rounded-lg border border-green-300 hover:bg-gray-200 transition flex items-center justify-start text-lg"
+              className="py-3 px-4 rounded-lg border border-green-300 hover:bg-gray-200 transition flex items-center justify-start text-lg"
             >
               {item.name}
             </Link>
