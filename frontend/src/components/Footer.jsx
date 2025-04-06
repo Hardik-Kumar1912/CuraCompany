@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="mb-4 md:mb-0 w-full md:w-auto">
           <div className="flex">
           <img
-          src="../../public/Logo.png" // <- Update this to your actual logo path
+          src="/Logo.png" // <- Update this to your actual logo path
           alt="Cura Logo"
           className="h-12 w-12 object-contain"
         />

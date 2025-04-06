@@ -7,7 +7,7 @@ const Navbar1 = () => {
       <nav className="navbar bg-gradient-to-r from-blue-500 to-blue-700 border-b border-blue-800 shadow-md px-6 py-4 relative flex items-center text-white">
         {/* Logo Section (Left-Aligned, Slightly Shifted Right) */}
         <img
-          src="../../public/Logo.png" // <- Update this to your actual logo path
+          src="/Logo.png" // <- Update this to your actual logo path
           alt="Cura Logo"
           className="h-12 w-12 object-contain"
         />
