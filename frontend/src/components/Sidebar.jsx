@@ -7,17 +7,20 @@ const Sidebar = ({ toggleSidebar }) => {
   const { loading, logout } = useLogout();
 
   return (
-    <div className="h-full flex flex-col w-64 md:w-72 bg-gradient-to-b from-black to-gray-900 text-white shadow-xl border-r border-gray-800">
+    <div className="relative h-full flex flex-col w-64 md:w-72 bg-white text-gray-800 shadow-xl">
       {/* Close Button (Mobile Only) */}
       <div className="md:hidden flex justify-end p-4">
-        <button onClick={toggleSidebar} className="text-3xl text-gray-400 hover:text-white transition">
+        <button
+          onClick={toggleSidebar}
+          className="text-3xl text-gray-600 hover:text-gray-800 transition"
+        >
           &times;
         </button>
       </div>
 
       {/* CURA HEADING */}
-      <div className="text-center py-6">
-        <h1 className="text-3xl font-bold tracking-wide text-gray-100">
+      <div className="text-center py-6 mb-4">
+        <h1 className="text-3xl font-bold tracking-wide text-gray-900">
           <Link to="/">Cura</Link>
         </h1>
         <div className="h-1 w-20 bg-blue-500 rounded-full mx-auto mt-2"></div>
@@ -35,7 +38,7 @@ const Sidebar = ({ toggleSidebar }) => {
           <li key={index}>
             <Link
               to={item.path}
-              className="block py-3 px-4 rounded-lg bg-gray-800/50 hover:bg-blue-600 transition flex items-center justify-start text-lg"
+              className="block py-3 px-4 rounded-lg border border-green-300 hover:bg-gray-200 transition flex items-center justify-start text-lg"
             >
               {item.name}
             </Link>
@@ -60,6 +63,9 @@ const Sidebar = ({ toggleSidebar }) => {
           )}
         </button>
       </div>
+
+      {/* Gradient Border on Right Side */}
+      <div className="absolute top-0 right-0 h-full w-1 bg-gradient-to-b from-green-400 to-orange-400" />
     </div>
   );
 };

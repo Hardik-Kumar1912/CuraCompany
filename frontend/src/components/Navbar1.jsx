@@ -4,23 +4,20 @@ import { Link } from "react-router-dom";
 const Navbar1 = () => {
   return (
     <div className="w-full">
-      {/* White line above the navbar */}
-      <div className="w-full h-[1px] bg-white opacity-50"></div>
-
-      <nav className="navbar bg-black shadow-md px-6 py-4 relative flex items-center">
+      <nav className="navbar bg-gradient-to-r from-blue-500 to-blue-700 border-b border-blue-800 shadow-md px-6 py-4 relative flex items-center text-white">
         {/* Logo Section (Left-Aligned, Slightly Shifted Right) */}
         <div className="flex-1 ml-4">
           <Link
             to="/"
-            className="text-4xl font-bold text-primary tracking-wide hover:text-primary-focus transition relative"
+            className="text-4xl font-bold tracking-wide hover:text-white transition relative"
           >
             Cura
             {/* Gradient Underline */}
             <div className="absolute left-0 bottom-0 w-full h-[2px]">
-              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
-              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
-              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
-              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-indigo-200 to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-indigo-200 to-transparent h-px w-3/4" />
+              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-sky-200 to-transparent h-[5px] w-1/4 blur-sm" />
+              <div className="absolute inset-x-0 bg-gradient-to-r from-transparent via-sky-200 to-transparent h-px w-1/4" />
             </div>
           </Link>
         </div>
@@ -29,16 +26,13 @@ const Navbar1 = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal space-x-4">
             <li>
-              <Link to="/login" className="btn btn-outline btn-primary px-5 hover:bg-primary hover:text-white transition">
+              <Link to="/login" className="btn btn-outline border-white text-white hover:bg-white hover:text-blue-700 transition px-5">
                 Start Selling
               </Link>
             </li>
           </ul>
         </div>
       </nav>
-
-      {/* White line below the navbar */}
-      <div className="w-full h-[1px] bg-white opacity-50"></div>
     </div>
   );
 };

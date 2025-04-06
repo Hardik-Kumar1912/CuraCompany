@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import newbgpic from "../assets/newbgpic.jpg"; // Adjust the path as necessary
 
 const InitialPage = () => {
   const navigate = useNavigate();
@@ -44,10 +45,16 @@ const InitialPage = () => {
                 alt={`Slide ${index + 1}`}
               />
               <div className="absolute left-2 sm:left-5 right-2 sm:right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <button className="btn btn-circle btn-sm sm:btn-md" onClick={handlePrev}>
+                <button
+                  className="btn btn-circle btn-sm sm:btn-md"
+                  onClick={handlePrev}
+                >
                   ❮
                 </button>
-                <button className="btn btn-circle btn-sm sm:btn-md" onClick={handleNext}>
+                <button
+                  className="btn btn-circle btn-sm sm:btn-md"
+                  onClick={handleNext}
+                >
                   ❯
                 </button>
               </div>
@@ -55,11 +62,11 @@ const InitialPage = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Static image for mobile screens */}
       <div className="block sm:hidden">
         <img
-          src="https://st3.depositphotos.com/6121364/14502/v/450/depositphotos_145025549-stock-illustration-medical-symbol-isolated-on-black.jpg"
+          src={newbgpic}
           alt="Mobile Banner"
           className="w-full object-cover p-10"
         />
@@ -67,22 +74,25 @@ const InitialPage = () => {
 
       {/* Register As Seller Section */}
       <div className="flex justify-center items-center h-auto min-h-[24rem] py-10">
-        <div className="bg-white p-6 sm:p-10 rounded-lg shadow-lg w-full max-w-md">
-          <h1 className="text-xl sm:text-2xl font-bold text-center mb-4 text-black">
-            Register as a Seller
-          </h1>
-          <p className="text-center text-black text-sm sm:text-base">
-            From a small idea to a recognized name.
-          </p>
-          <p className="text-center text-black text-sm sm:text-base">
-            Become a seller on Cura | Sign up with your business details and start selling today!
-          </p>
-          <button
-            className="btn btn-primary w-full mt-4 sm:mt-5 text-sm sm:text-base"
-            onClick={handleClick}
-          >
-            Register
-          </button>
+        <div className="p-1 bg-gradient-to-r from-green-400 to-orange-400 rounded-lg">
+          <div className="bg-white p-6 sm:p-10 rounded-lg shadow-lg w-full max-w-md">
+            <h1 className="text-xl sm:text-2xl font-bold text-center mb-4 text-black">
+              Register as a Seller
+            </h1>
+            <p className="text-center text-black text-sm sm:text-base">
+              From a small idea to a recognized name.
+            </p>
+            <p className="text-center text-black text-sm sm:text-base">
+              Become a seller on Cura | Sign up with your business details and
+              start selling today!
+            </p>
+            <button
+              className="text-white btn btn-primary w-full mt-4 sm:mt-5 text-sm sm:text-base bg-gradient-to-r from-blue-500 to-blue-700 border-b border-blue-800"
+              onClick={handleClick}
+            >
+              Register
+            </button>
+          </div>
         </div>
       </div>
     </div>
