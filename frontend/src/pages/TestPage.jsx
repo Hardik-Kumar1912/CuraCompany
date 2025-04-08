@@ -100,7 +100,7 @@ const TestPage = () => {
 			{success && <p className="text-green-500">Test updated successfully!</p>}
 			<form className="w-full max-w-lg flex flex-col gap-5 px-3 mt-4" onSubmit={handleSubmit}>
 				<div className="w-full">
-					<label className="block text-white text-xs font-bold mb-2" htmlFor="testName">
+					<label className="block text-black text-xs font-bold mb-2" htmlFor="testName">
 						Test/Package Name
 					</label>
 					<input
@@ -114,7 +114,7 @@ const TestPage = () => {
 					/>
 				</div>
 				<div className="w-full">
-					<label className="block text-white text-xs font-bold mb-2" htmlFor="testsIncluded">
+					<label className="block text-black text-xs font-bold mb-2" htmlFor="testsIncluded">
 						Tests Included
 					</label>
 					<input
@@ -128,7 +128,7 @@ const TestPage = () => {
 					/>
 				</div>
 				<div className="w-full">
-					<label className="block text-white text-xs font-bold mb-2" htmlFor="category">
+					<label className="block text-black text-xs font-bold mb-2" htmlFor="category">
 						Category
 					</label>
 					<select
@@ -144,7 +144,7 @@ const TestPage = () => {
 					</select>
 				</div>
 				<div className="w-full">
-					<label className="block text-white text-xs font-bold mb-2" htmlFor="price">
+					<label className="block text-black text-xs font-bold mb-2" htmlFor="price">
 						Price (₹)
 					</label>
 					<input
