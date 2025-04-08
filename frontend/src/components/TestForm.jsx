@@ -64,7 +64,7 @@ const TestForm = () => {
 			<div className='flex flex-wrap'>
 				<div className='w-full'>
 					<label
-						className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+						className='block uppercase tracking-wide text-black text-xs font-bold mb-2'
 						htmlFor='testName'
 					>
 						Test/Package Name
@@ -80,7 +80,7 @@ const TestForm = () => {
 				</div>
                 <div className='w-full mt-4'>
 					<label
-						className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+						className='block uppercase tracking-wide text-black text-xs font-bold mb-2'
 						htmlFor='testsIncluded'
 					>
 						Tests Included
@@ -101,7 +101,7 @@ const TestForm = () => {
 				{/* CATEGORY */}
 				<div className='w-full flex-1 mb-6 md:mb-0'>
 					<label
-						className='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+						className='block uppercase tracking-wide text-black text-xs font-bold mb-2'
 						htmlFor='category'
 					>
 						Category
@@ -130,7 +130,7 @@ const TestForm = () => {
 
 				{/* AMOUNT */}
 				<div className='w-full flex-1 mb-6 md:mb-0'>
-					<label className='block uppercase text-white text-xs font-bold mb-2' htmlFor='price'>
+					<label className='block uppercase text-black text-xs font-bold mb-2' htmlFor='price'>
 						Price(₹)
 					</label>
 					<input

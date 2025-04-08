@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import newbgpic from "../assets/newbgpic.jpg"; // Adjust the path as necessary
+import newbgpic from "../assets/newbgpic.jpg";
 
 const InitialPage = () => {
   const navigate = useNavigate();
