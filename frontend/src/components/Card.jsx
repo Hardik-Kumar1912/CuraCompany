@@ -38,7 +38,7 @@ const Card = ({ id, cardType , noOfTests , price ,tests , name , onUpdate }) => 
 		<div className={`rounded-md p-4 bg-gradient-to-br ${cardClass}`}>
 			<div className='flex flex-col gap-3'>
 				<div className='flex flex-row items-center justify-between'>
-					<h2 className='text-lg font-bold text-white'>{cardType}</h2>
+					<h2 className='text-lg font-bold text-white'>{name}</h2>
 					<div className='flex items-center gap-2'>
 						<FaTrash className={"cursor-pointer text-white"} onClick={handleDelete}/>
 						<Link to={`/transaction/${id}`}>
@@ -48,7 +48,7 @@ const Card = ({ id, cardType , noOfTests , price ,tests , name , onUpdate }) => 
 				</div>
 				<p className='text-white flex items-center gap-1'>
 					<BsCardText />
-					Test Name: {name}
+					Category: {cardType[0].toUpperCase() + cardType.slice(1)}
 				</p>
 				<p className='text-white flex items-center gap-1'>
 					<BsCardText />
@@ -57,10 +57,6 @@ const Card = ({ id, cardType , noOfTests , price ,tests , name , onUpdate }) => 
                 <p className='text-white flex items-center gap-1'>
 					<BsCardText />
 					Tests Included : {tests}
-				</p>
-				<p className='text-white flex items-center gap-1'>
-					<MdOutlinePayments />
-					Category : {cardType}
 				</p>
 				<p className='text-white flex items-center gap-1'>
 					<FaSackDollar />
