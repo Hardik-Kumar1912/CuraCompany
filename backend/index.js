@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 import connectDB from "./db/connectDB.js";
 import authRoutes from "./routes/auth.routes.js";
 import testRoutes from "./routes/test.routes.js";
+import transactionRoutes from "./routes/transactions.routes.js";
+import packageRoutes from "./routes/package.routes.js";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tests", testRoutes);
+app.use("/api/transactions", transactionRoutes);
+app.use("/api/packages",packageRoutes);
 
 app.use(express.static(path.join(__dirname, "/frontend/dist")));
 

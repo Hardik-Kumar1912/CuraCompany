@@ -14,6 +14,9 @@ import Footer from "./components/Footer";
 import DashBoard from "./pages/DashBoard";
 import Yet from "./pages/Yet";
 
+import Analytics from "./pages/Analytics";
+import PackagePage from "./pages/PackagePage";
+
 function App() {
   const { authUser } = useAuthContext();
 
@@ -36,7 +39,12 @@ function App() {
           path="/signup"
           element={authUser ? <DashBoard/> : <SignUpPage />}
         />
+        <Route
+          path="/analytics"
+          element={<div><Header /><Analytics /></div>}
+        />
         <Route path="/transaction/:id" element={<div><Header /><TestPage /></div>} />
+        <Route path="/packageTransaction/:id" element={<div><Header /><PackagePage /></div>} />
         <Route path="/yet" element={<Yet/>} />
       </Routes>
       <Toaster />

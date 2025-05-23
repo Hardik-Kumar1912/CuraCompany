@@ -1,12 +1,15 @@
 import Test from "../models/test.model.js";
+import Package from "../models/package.model.js";
 
 export const getAllTests = async (req, res) => {
     try {
-        const tests = await Test.find();
-        res.status(200).json(tests);
-    } catch (error) {
-        res.status(500).json({ message: "Error fetching tests", error });
-    }
+		const tests = await Test.find();
+		const packages = await Package.find();
+		res.status(200).json({ tests, packages });
+	} catch (error) {
+		console.error("Error fetching tests and packages:", error);
+		res.status(500).json({ message: "Error fetching data", error });
+	}
 };
 
 export const getTestById = async (req, res) => {
@@ -24,10 +27,10 @@ export const getTestById = async (req, res) => {
 export const createTest = async (req, res) => {
     try {
 
-        const { companyId, noOfTests, price, tests, name, category } = req.body;
+        const { companyId, noOfTests, price, tests, name, category, type } = req.body;
 
-        if (!companyId || !noOfTests || !price || !tests || !name || !category) {
-            console.error("Missing required fields:", { companyId, noOfTests, price, tests, name, category });
+        if (!companyId || !noOfTests || !price || !tests || !name || !category ||!type) {
+            console.error("Missing required fields:", { companyId, noOfTests, price, tests, name, category ,type });
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -38,6 +41,7 @@ export const createTest = async (req, res) => {
             tests,
             name,
             category,
+            type
         });
 
         const savedTest = await newTest.save();
@@ -51,10 +55,10 @@ export const createTest = async (req, res) => {
 
 export const updateTest = async (req, res) => {
     try {
-        const { companyId, noOfTests, price, tests, name, category } = req.body;
+        const { companyId, noOfTests, price, tests, name, category ,type } = req.body;
         const updatedTest = await Test.findByIdAndUpdate(
             req.params.id,
-            { companyId, noOfTests, price, tests, name, category },
+            { companyId, noOfTests, price, tests, name, category ,type },
             { new: true, runValidators: true }
         );
 

@@ -30,7 +30,7 @@ const Sidebar = ({ toggleSidebar }) => {
       <ul className="flex-1 px-6 space-y-4">
         {[
           { name: "Test/Packages", path: "/home" },
-          { name: "Analytics", path: "/yet" },
+          { name: "Analytics", path: "/analytics" },
           { name: "Orders", path: "/yet" },
           { name: "Sales", path: "/yet" },
           { name: "Settings", path: "/yet" },
