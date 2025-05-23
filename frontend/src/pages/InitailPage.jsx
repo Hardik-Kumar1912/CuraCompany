@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import newbgpic from "../assets/newbgpic.jpg";
+import image1 from "../assets/1.jpg";
+import image2 from "../assets/2.webp";
+import image3 from "../assets/3.webp";
+import Static from "../assets/Static.png";
+
 
 const InitialPage = () => {
   const navigate = useNavigate();
@@ -11,10 +16,9 @@ const InitialPage = () => {
   };
 
   const images = [
-    "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp",
-    "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp",
-    "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp",
-    "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp",
+    image1,
+    image2,
+    image3
   ];
 
   const handlePrev = (e) => {
@@ -66,9 +70,9 @@ const InitialPage = () => {
       {/* Static image for mobile screens */}
       <div className="block sm:hidden">
         <img
-          src={newbgpic}
+          src={Static}
           alt="Mobile Banner"
-          className="w-full object-cover p-10"
+          className="w-full object-cover"
         />
       </div>
 
