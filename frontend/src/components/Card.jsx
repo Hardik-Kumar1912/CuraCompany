@@ -5,6 +5,8 @@ import { FaMoneyBill, FaTrash } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useState } from "react";
+import ConfirmDelete from "./ConfirmDelete.jsx";
 
 const categoryColorMap = {
   fullbody: "from-green-700 to-green-400",
@@ -31,35 +33,28 @@ const Card = ({
         : cardType?.name?.toLowerCase()
     ] || "from-gray-700 to-gray-400";
 
-  const handleDelete = async () => {
-    if (type === "test") {
-      try {
-        const response = await fetch(`/api/tests/test/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          onUpdate();
-          toast.success("Test deleted successfully");
-        } else {
-          console.error("Failed to delete test");
-        }
-      } catch (error) {
-        console.error("Error deleting test", error);
+    const [showModal, setShowModal] = useState(false);
+
+   const handleConfirmDelete = async () => {
+    try {
+      const url =
+        type === "test"
+          ? `/api/tests/test/${id}`
+          : `/api/packages/package/${id}`;
+
+      const response = await fetch(url, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        onUpdate();
+        toast.success(`${formatType()} deleted successfully`);
+      } else {
+        toast.error(`Failed to delete ${formatType()}`);
       }
-    } else if (type === "package") {
-      try {
-        const response = await fetch(`/api/packages/package/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          onUpdate();
-          toast.success("Package deleted successfully");
-        } else {
-          console.error("Failed to delete package");
-        }
-      } catch (error) {
-        console.error("Error deleting package", error);
-      }
+    } catch (error) {
+      toast.error("Something went wrong");
+      console.error("Error deleting:", error);
     }
   };
 
@@ -94,9 +89,9 @@ const Card = ({
           <h2 className="text-lg font-bold text-white">{name}</h2>
           <div className="flex items-center gap-2">
             <FaTrash
-              className={"cursor-pointer text-white"}
-              onClick={handleDelete}
-            />
+  className="cursor-pointer text-white"
+  onClick={() => setShowModal(true)}
+/>
             <Link
               to={
                 type === "package"
@@ -142,6 +137,13 @@ const Card = ({
           />
         </div>
       </div>
+
+          <ConfirmDelete
+  isOpen={showModal}
+  onClose={() => setShowModal(false)}
+  onConfirm={handleConfirmDelete}
+/>
+
     </div>
   );
 };
