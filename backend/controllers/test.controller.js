@@ -3,8 +3,9 @@ import Package from "../models/package.model.js";
 
 export const getAllTests = async (req, res) => {
     try {
-		const tests = await Test.find();
-		const packages = await Package.find();
+        const { companyId } = req.query;
+		const tests = await Test.find({ companyId });
+		const packages = await Package.find({ companyId });
 		res.status(200).json({ tests, packages });
 	} catch (error) {
 		console.error("Error fetching tests and packages:", error);

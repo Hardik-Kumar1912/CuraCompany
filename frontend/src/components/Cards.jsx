@@ -8,9 +8,12 @@ const Cards = () => {
 	const [error, setError] = useState(null);
 	const [refreshTrigger, setRefreshTrigger] = useState(false); // For refetching after update
 
+	const companyDetail = localStorage.getItem("medi-companyUser");
+	const companyId = companyDetail ? JSON.parse(companyDetail)._id : null;
+
 	const fetchData = async () => {
 		try {
-			const response = await fetch("/api/tests/allTests");
+			const response = await fetch(`/api/tests/allTests?companyId=${companyId}`);
 			const data = await response.json();
 
 			// Destructure and set tests and packages
