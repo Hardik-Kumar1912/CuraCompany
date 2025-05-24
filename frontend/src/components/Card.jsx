@@ -60,7 +60,7 @@ const Card = ({
 
   // Format category name safely
   const formatCategory = () => {
-    console.log(noOfTests);
+    
     if (!cardType) return "Unknown";
     if (typeof cardType === "string") {
       return cardType.charAt(0).toUpperCase() + cardType.slice(1);

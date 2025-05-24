@@ -13,7 +13,9 @@ export const signup = async (req, res) => {
     const user = await CompanyUser.findOne({ phoneNumber });
 
     if (user) {
-      return res.status(400).json({ error: "User with this phone number already exists" });
+      return res
+        .status(400)
+        .json({ error: "User with this phone number already exists" });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -71,11 +73,9 @@ export const login = async (req, res) => {
 };
 
 export const logout = async (req, res) => {
-  try{
-
-    res.cookie("jwt","",{maxAge:0})
-    res.status(200).json({message : "Logged out successfully"})
-
+  try {
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in logout controller : ", error.message);
     res.status(500).json({ error: "Internal Server Error" });

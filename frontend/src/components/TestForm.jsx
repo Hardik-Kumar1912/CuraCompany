@@ -45,7 +45,7 @@ const TestForm = () => {
 			}
 
 			const result = await response.json();
-			console.log("Created:", result);
+		
 			setSuccess(true);
 			form.reset();
 			toast.success("Test added successfully");
@@ -63,29 +63,12 @@ const TestForm = () => {
 			}
 
 			const result = await response.json();
-			console.log("Created:", result);
+
 			setSuccess(true);
 			form.reset();
 			toast.success("Test added successfully");
 		}
 
-		// console.log("Test type:", testData.type);
-		// const response = await fetch(endpoint, {
-		// 	method: "POST",
-		// 	headers: { "Content-Type": "application/json" },
-		// 	body: JSON.stringify(),
-		// });
-
-		// if (!response.ok) {
-		// 	throw new Error("Failed to create " + type);
-		// }
-
-		// const result = await response.json();
-		// console.log("Created:", result);
-		// setSuccess(true);
-		// form.reset();
-		// toast.success(`${type === "test" ? "Test" : "Package"} added successfully`);
-	} catch (err) {
 		setError(err.message);
 	} finally {
 		setLoading(false);

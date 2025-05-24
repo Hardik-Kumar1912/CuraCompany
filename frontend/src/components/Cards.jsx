@@ -12,7 +12,6 @@ const Cards = () => {
 		try {
 			const response = await fetch("/api/tests/allTests");
 			const data = await response.json();
-			console.log("Fetched data:", data);
 
 			// Destructure and set tests and packages
 			setTests(data.tests || []);
