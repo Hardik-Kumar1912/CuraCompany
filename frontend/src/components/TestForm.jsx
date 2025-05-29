@@ -171,6 +171,7 @@ const TestForm = () => {
 							<option value={"fullbody"}>Full Body</option>
 							<option value={"teeth"}>Teeth</option>
 							<option value={"kidney"}>Kidney</option>
+							<option value={"others"}>Others</option>
 						</select>
 						<div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700'>
 							<svg

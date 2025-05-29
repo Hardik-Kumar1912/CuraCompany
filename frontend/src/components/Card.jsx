@@ -12,7 +12,7 @@ const categoryColorMap = {
   fullbody: "from-green-700 to-green-400",
   teeth: "from-pink-800 to-pink-600",
   kidney: "from-blue-700 to-blue-400",
-  // Add more categories and corresponding color classes as needed
+  others: "from-yellow-700 to-yellow-400"
 };
 
 const Card = ({
