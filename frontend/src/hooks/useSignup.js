@@ -36,21 +36,27 @@ const useSignup = () => {
 
 export default useSignup;
 
-function handleInputErrors({ companyName, phoneNumber, password, confirmPassword }) {
-	if (!companyName || !phoneNumber || !password || !confirmPassword) {
-		toast.error("Please fill in all fields");
-		return false;
-	}
+function handleInputErrors({ companyName, phoneNumber, password, confirmPassword}) {
+    if (!companyName || !phoneNumber || !password || !confirmPassword) {
+        toast.error("Please fill all fields");
+        return false;
+    }
 
-	if (password !== confirmPassword) {
-		toast.error("Passwords do not match");
-		return false;
-	}
 
-	if (password.length < 4) {
-		toast.error("Password must be at least 4 characters");
-		return false;
-	}
+    if (!/^\d{10}$/.test(phoneNumber)) {
+        toast.error("Phone number must be exactly 10 digits");
+        return false;
+    }
 
-	return true;
+    if (password !== confirmPassword) {
+        toast.error("Passwords do not match");
+        return false;
+    }
+
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password)) {
+        toast.error("Password must be at least 8 characters and include uppercase, lowercase, number, and special character");
+        return false;
+    }
+
+    return true;
 }
